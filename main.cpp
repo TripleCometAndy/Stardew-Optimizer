@@ -340,7 +340,7 @@ int main(){
   farm c(a.getGrid(), b.getGrid());
   remove("output13.txt");
 
-  farm * pool[100];
+  farm * pool[200];
   int numFarms = 0;
   farm * d;
   farm * farmToDelete;
@@ -356,7 +356,7 @@ int main(){
     if(d->verify()){
 
       //check if farm queue is empty//
-      if(numFarms != 100){
+      if(numFarms != 200){
 
         pool[numFarms] = d;
         numFarms++;
@@ -380,7 +380,7 @@ int main(){
     }
 
   }
-  for(int i = 0; i < 10; i++){
+  for(int i = 0; i < 200; i++){
 
     delete(pool[i]);
 
