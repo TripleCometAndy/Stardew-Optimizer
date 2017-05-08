@@ -1,5 +1,33 @@
 #include "test.h"
 
+void sortFarm(farm * pool[100]){
+
+  bool flag = true;
+  for(int i = 1; i <= 100 && flag; i++){
+
+    flag = false;
+    farm * temp;
+    for(int j = 0; j < 99; j++){
+
+      if(pool[j + 1]->getScore() > pool[j]->getScore()){
+
+        temp = pool[j];
+        pool[j] = pool[j + 1];
+        pool[j + 1] = temp;
+        flag = true;
+
+
+      }
+
+
+    }
+
+
+  }
+
+
+}
+
 int main(){
 
   float score = 0;
@@ -340,7 +368,7 @@ int main(){
   farm c(a.getGrid(), b.getGrid());
   remove("output13.txt");
 
-  farm * pool[200];
+  farm * pool[100];
   int numFarms = 0;
   farm * d;
   farm * farmToDelete;
@@ -356,7 +384,7 @@ int main(){
     if(d->verify()){
 
       //check if farm queue is empty//
-      if(numFarms != 200){
+      if(numFarms != 100){
 
         pool[numFarms] = d;
         numFarms++;
@@ -367,6 +395,8 @@ int main(){
         key = false;
 
       }
+
+
       cout << "Success" << endl;
       //d->printFarm();
 
@@ -380,7 +410,584 @@ int main(){
     }
 
   }
-  for(int i = 0; i < 200; i++){
+  //sort//
+  sortFarm(pool);
+
+  remove("scores.txt");
+  ofstream outputFile;
+  outputFile.open("scores.txt");
+  for(int i = 0; i < 99; i++){
+
+    //remove("scores.txt");
+    outputFile << pool[i]->getScore() << ",";
+
+  }
+
+
+  farm * parentOne;
+  farm * parentTwo;
+  while(1){
+
+    //parentOne = pool[0];
+
+    int number = 0;
+    random_device rd;
+    default_random_engine generator(rd());
+
+    uniform_int_distribution<int> distribution(0,1500000);
+
+    number = distribution(generator);
+
+    if(number >= 0 && number < 1){
+
+      number = 99;
+
+    }
+    else if(number >= 1 && number < 8){
+
+      number = 98;
+
+    }
+    else if(number >= 8 && number < 27){
+
+      number = 97;
+
+    }
+    else if(number >= 27 && number < 64){
+
+      number = 96;
+
+    }
+    else if(number >= 64 && number < 125){
+
+      number = 95;
+
+    }
+    else if(number >= 125 && number < 216){
+
+      number = 94;
+
+    }
+    else if(number >= 216 && number < 343){
+
+      number = 93;
+
+    }
+    else if(number >= 343 && number < 512){
+
+      number = 92;
+
+    }
+    else if(number >= 512 && number < 729){
+
+      number = 91;
+
+    }
+    else if(number >= 729 && number < 1000){
+
+      number = 90;
+
+    }
+    else if(number >= 1000 && number < 1331){
+
+      number = 89;
+
+    }
+    else if(number >= 1331 && number < 1728){
+
+      number = 88;
+
+    }
+    else if(number >= 1729 && number < 2197){
+
+      number = 87;
+
+    }
+    else if(number >= 2197 && number < 2744){
+
+      number = 86;
+
+    }
+    else if(number >= 2744 && number < 3375){
+
+      number = 85;
+
+    }
+    else if(number >= 3375 && number < 4096){
+
+      number = 84;
+
+    }
+    else if(number >= 4096 && number < 4913){
+
+      number = 83;
+
+    }
+    else if(number >= 4913 && number < 5832){
+
+      number = 82;
+
+    }
+    else if(number >= 5832 && number < 6859){
+
+      number = 81;
+
+    }
+    else if(number >= 6859 && number < 8000){
+
+      number = 80;
+
+    }
+    else if(number >= 8000 && number < 9261){
+
+      number = 79;
+
+    }
+    else if(number >= 9261 && number < 10648){
+
+      number = 78;
+
+    }
+    else if(number >= 10648 && number < 12167){
+
+      number = 77;
+
+    }
+    else if(number >= 12167 && number < 13824){
+
+      number = 76;
+
+    }
+    else if(number >= 13824 && number < 15625){
+
+      number = 75;
+
+    }
+    else if(number >= 15625 && number < 17576){
+
+      number = 74;
+
+    }
+    else if(number >= 17576 && number < 19683){
+
+      number = 73;
+
+    }
+    else if(number >= 19683 && number < 21952){
+
+      number = 72;
+
+    }
+    else if(number >= 21952 && number < 24389){
+
+      number = 71;
+
+    }
+    else if(number >= 24389 && number < 27000){
+
+      number = 70;
+
+    }
+    else if(number >= 27000 && number < 29791){
+
+      number = 69;
+
+    }
+    else if(number >= 29791 && number < 32768){
+
+      number = 68;
+
+    }
+    else if(number >= 32768 && number < 35937){
+
+      number = 67;
+
+    }
+    else if(number >= 35937 && number < 39304){
+
+      number = 66;
+
+    }
+    else if(number >= 39304 && number < 42875){
+
+      number = 65;
+
+    }
+    else if(number >= 42875 && number < 46656){
+
+      number = 64;
+
+    }
+    else if(number >= 46656 && number < 50653){
+
+      number = 63;
+
+    }
+    else if(number >= 50653 && number < 54872){
+
+      number = 62;
+
+    }
+    else if(number >= 54872 && number < 59319){
+
+      number = 61;
+
+    }
+    else if(number >= 59319 && number < 64000){
+
+      number = 60;
+
+    }
+    else if(number >= 64000 && number < 68921){
+
+      number = 59;
+
+    }
+    else if(number >= 68921 && number < 74088){
+
+      number = 58;
+
+    }
+    else if(number >= 74088 && number < 79507){
+
+      number = 57;
+
+    }
+    else if(number >= 79507 && number < 85184){
+
+      number = 56;
+
+    }
+    else if(number >= 85184 && number < 91125){
+
+      number = 55;
+
+    }
+    else if(number >= 91125 && number < 97336){
+
+      number = 54;
+
+    }
+    else if(number >= 97336 && number < 103823){
+
+      number = 53;
+
+    }
+    else if(number >= 103823 && number < 110592){
+
+      number = 52;
+
+    }
+    else if(number >= 110592 && number < 117649){
+
+      number = 51;
+
+    }
+    else if(number >= 117649 && number < 125000){
+
+      number = 50;
+
+    }
+    else if(number >= 125000 && number < 132651){
+
+      number = 49;
+
+    }
+    else if(number >= 132651 && number < 140608){
+
+      number = 48;
+
+    }
+    else if(number >= 140608 && number < 148877){
+
+      number = 47;
+
+    }
+    else if(number >= 148877 && number < 157464){
+
+      number = 46;
+
+    }
+    else if(number >= 157464 && number < 166375){
+
+      number = 45;
+
+    }
+    else if(number >= 166375 && number < 175616){
+
+      number = 44;
+
+    }
+    else if(number >= 175616 && number < 185193){
+
+      number = 43;
+
+    }
+    else if(number >= 185193 && number < 195112){
+
+      number = 42;
+
+    }
+    else if(number >= 195112 && number < 205379){
+
+      number = 41;
+
+    }
+    else if(number >= 205379 && number < 216000){
+
+      number = 40;
+
+    }
+    else if(number >= 216000 && number < 226981){
+
+      number = 39;
+
+    }
+    else if(number >= 226981 && number < 238328){
+
+      number = 38;
+
+    }
+    else if(number >= 238328 && number < 250047){
+
+      number = 37;
+
+    }
+    else if(number >= 250047 && number < 262144){
+
+      number = 36;
+
+    }
+    else if(number >= 262144 && number < 274625){
+
+      number = 35;
+
+    }
+    else if(number >= 274625 && number < 287496){
+
+      number = 34;
+
+    }
+    else if(number >= 287496 && number < 300763){
+
+      number = 33;
+
+    }
+    else if(number >= 300763 && number < 314432){
+
+      number = 32;
+
+    }
+    else if(number >= 314432 && number < 328509){
+
+      number = 31;
+
+    }
+    else if(number >= 328509 && number < 343000){
+
+      number = 30;
+
+    }
+    else if(number >= 343000 && number < 357911){
+
+      number = 29;
+
+    }
+    else if(number >= 357911 && number < 373248){
+
+      number = 28;
+
+    }
+    else if(number >= 373248 && number < 389017){
+
+      number = 27;
+
+    }
+    else if(number >= 389017 && number < 405224){
+
+      number = 26;
+
+    }
+    else if(number >= 405224 && number < 421875){
+
+      number = 25;
+
+    }
+    else if(number >= 421875 && number < 438976){
+
+      number = 24;
+
+    }
+    else if(number >= 438976 && number < 456533){
+
+      number = 23;
+
+    }
+    else if(number >= 456533 && number < 474552){
+
+      number = 24;
+
+    }
+    else if(number >= 474552 && number < 493039){
+
+      number = 23;
+
+    }
+    else if(number >= 493039 && number < 512000){
+
+      number = 24;
+
+    }
+    else if(number >= 512000 && number < 531441){
+
+      number = 23;
+
+    }
+    else if(number >= 531441 && number < 551368){
+
+      number = 22;
+
+    }
+    else if(number >= 551368 && number < 571787){
+
+      number = 21;
+
+    }
+    else if(number >= 571787 && number < 592704){
+
+      number = 20;
+
+    }
+    else if(number >= 592704 && number < 614125){
+
+      number = 19;
+
+    }
+    else if(number >= 614125 && number < 636056){
+
+      number = 18;
+
+    }
+    else if(number >= 636056 && number < 658053){
+
+      number = 17;
+
+    }
+    else if(number >= 658053 && number < 681472){
+
+      number = 16;
+
+    }
+    else if(number >= 681472 && number < 704969){
+
+      number = 15;
+
+    }
+    else if(number >= 704969 && number < 729000){
+
+      number = 14;
+
+    }
+    else if(number >= 729000 && number < 753571){
+
+      number = 13;
+
+    }
+    else if(number >= 753571 && number < 778688){
+
+      number = 12;
+
+    }
+    else if(number >= 778688 && number < 804357){
+
+      number = 11;
+
+    }
+    else if(number >= 804357 && number < 830584){
+
+      number = 10;
+
+    }
+    else if(number >= 830584 && number < 857375){
+
+      number = 9;
+
+    }
+    else if(number >= 857375 && number < 884736){
+
+      number = 8;
+
+    }
+    else if(number >= 884736 && number < 912673){
+
+      number = 7;
+
+    }
+    else if(number >= 912673 && number < 941192){
+
+      number = 6;
+
+    }
+    else if(number >= 941192 && number < 970299){
+
+      number = 5;
+
+    }
+    else if(number >= 970299 && number < 1000000){
+
+      number = 4;
+
+    }
+    else if(number >= 1000000 && number < 1050000){
+
+      number = 3;
+
+    }
+    else if(number >= 1050000 && number < 1100000){
+
+      number = 2;
+
+    }
+    else if(number >= 1100000 && number < 1500000){
+
+      number = 1;
+
+    }
+
+    parentOne = pool[0];
+    parentTwo = pool[number];
+
+    d = pool[0]->makeFarm(parentOne, parentTwo);
+
+    if(d->verify()){
+
+      //check if farm queue is empty//
+      if(d->getScore() > pool[99]->getScore()){
+
+        farm * temp = pool[99];
+        pool[99] = d;
+        delete(temp);
+        sortFarm(pool);
+
+
+      }
+
+    }
+    else{
+
+      delete(d);
+    }
+    pool[0]->printFarm(0);
+  }
+
+  for(int i = 0; i < 100; i++){
+
+    cout << "Score: " << pool[i]->getScore() << endl;
+
+  }
+  pool[0]->printFarm(0);
+
+  for(int i = 0; i < 100; i++){
 
     delete(pool[i]);
 
