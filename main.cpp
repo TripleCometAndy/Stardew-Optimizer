@@ -397,14 +397,14 @@ int main(){
       }
 
 
-      cout << "Success" << endl;
+
       //d->printFarm();
 
 
     }
     else{
 
-      cout << count << ": Fail" << endl;
+
       count++;
       delete(d);
     }
@@ -968,6 +968,17 @@ int main(){
         pool[99] = d;
         delete(temp);
         sortFarm(pool);
+
+
+        cout << pool[0]->getScore();
+
+        float average = 0;
+        for(int i = 0; i < 100; i++){
+
+          average += pool[i]->getScore();
+
+        }
+        cout << "," << average/100.0 << endl;
 
 
       }
